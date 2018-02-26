@@ -8,6 +8,10 @@
     "build": "webpack-dev-server",
     "build:prod": "webpack -p"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/najens/neighborhood_map.git"
+  },
   "author": "Nate Jensen",
   "license": "MIT",
   "dependencies": {
