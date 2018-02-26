@@ -1,0 +1,11 @@
+// Mixin to create a bootstrap button with custom colors
+
+// @mixin custom-button($background) {
+//   $color: #fff;
+//   $border: 5%;
+//   @if (lightness($background) >= lightness(#aaa)) {
+//     $color: #333;
+//     $border: .2 * lightness($background);
+//   }
+//   @include button-variant($color, $background, darken($background, $border));
+// }

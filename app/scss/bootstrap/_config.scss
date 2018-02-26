@@ -1,0 +1,109 @@
+// READ MORE
+// https://github.com/twbs/bootstrap
+// https://v4-alpha.getbootstrap.com
+
+// Custom defaults to override bootstrap global variables
+@import "pre_default";
+
+// Global functions
+@import "node_modules/bootstrap/scss/functions";
+
+// Global variables
+@import "node_modules/bootstrap/scss/variables";  // Requires (_functions) module
+
+/*** Mixins ***/
+
+// Utilities
+// @import "node_modules/bootstrap/scss/mixins/breakpoints";
+// @import "node_modules/bootstrap/scss/mixins/hover";
+// @import "node_modules/bootstrap/scss/mixins/image";
+// @import "node_modules/bootstrap/scss/mixins/badge";
+// @import "node_modules/bootstrap/scss/mixins/resize";
+// @import "node_modules/bootstrap/scss/mixins/screen-reader";
+// @import "node_modules/bootstrap/scss/mixins/size";
+// @import "node_modules/bootstrap/scss/mixins/reset-text";
+// @import "node_modules/bootstrap/scss/mixins/text-emphasis";
+// @import "node_modules/bootstrap/scss/mixins/text-hide";
+// @import "node_modules/bootstrap/scss/mixins/text-truncate";
+// @import "node_modules/bootstrap/scss/mixins/visibility";
+
+// Components
+// @import "node_modules/bootstrap/scss/mixins/alert";
+// @import "node_modules/bootstrap/scss/mixins/buttons";
+// @import "node_modules/bootstrap/scss/mixins/caret";
+// @import "node_modules/bootstrap/scss/mixins/pagination";
+// @import "node_modules/bootstrap/scss/mixins/lists";
+// @import "node_modules/bootstrap/scss/mixins/list-group";
+// @import "node_modules/bootstrap/scss/mixins/nav-divider";
+// @import "node_modules/bootstrap/scss/mixins/forms";
+// @import "node_modules/bootstrap/scss/mixins/table-row";
+
+// Skins
+// @import "node_modules/bootstrap/scss/mixins/background-variant";
+// @import "node_modules/bootstrap/scss/mixins/border-radius";
+// @import "node_modules/bootstrap/scss/mixins/box-shadow";
+// @import "node_modules/bootstrap/scss/mixins/gradients";
+// @import "node_modules/bootstrap/scss/mixins/transition";
+
+// Layout
+// @import "node_modules/bootstrap/scss/mixins/clearfix";
+// @import "node_modules/bootstrap/scss/mixins/grid-framework";
+// @import "node_modules/bootstrap/scss/mixins/grid";
+// @import "node_modules/bootstrap/scss/mixins/float";
+
+/*** Core Css ***/
+
+// Layout
+// @import "node_modules/bootstrap/scss/grid";  // Requires (_grid, _grid-framework, _breakpoints) mixin
+// @import "node_modules/bootstrap/scss/media";
+
+// Content
+// @import "node_modules/bootstrap/scss/code";  // Requires (_border-radius, _box-shadow) mixin
+// @import "node_modules/bootstrap/scss/forms";  // Requires (_box-shadow, _transition, _forms, _border-radius, _gradients, _breakpoints) mixin
+// @import "node_modules/bootstrap/scss/images"; // Requires (_image, _border-radius, _box-shadow) mixin
+// @import "node_modules/bootstrap/scss/reboot"; // Requires (_hover) mixin
+// @import "node_modules/bootstrap/scss/tables";  // Requires (_table-row, _hover) mixin
+// @import "node_modules/bootstrap/scss/type";  // Requires (_lists) mixin
+
+// Components
+// @import "node_modules/bootstrap/scss/alert";  // Requires (_border-radius, _alert, _gradients) mixin
+// @import "node_modules/bootstrap/scss/badge";  // Requires (_border-radius, _badge, _hover) mixin
+// @import "node_modules/bootstrap/scss/breadcrumb";  // Requires (_border-radius) mixin
+// @import "node_modules/bootstrap/scss/buttons";  // Requires (_buttons, _transition, _gradients, _box-shadow, _hover) mixin
+// @import "node_modules/bootstrap/scss/button-group";  // Requires (_border-radius, _box-shadow, _hover) mixin
+// @import "node_modules/bootstrap/scss/card";  // Requires (_border-radius, _hover, _breakpoints) mixin
+// @import "node_modules/bootstrap/scss/carousel";  // w/ JavaScript  // Requires (_transition, _hover) mixin
+// @import "node_modules/bootstrap/scss/dropdown";  // Requires (_caret, _border-radius, _box-shadow, _nav-divider, _hover< _gradients) mixin
+// @import "node_modules/bootstrap/scss/custom-forms";  // Requires (_gradients, _box-shadow, _border-radius) mixin
+// @import "node_modules/bootstrap/scss/input-group";  // Requires (_border-radius,  _box-shadow, _gradients, _transition, _forms, _breakpoints) mixin (_forms) module
+// @import "node_modules/bootstrap/scss/jumbotron";  // Requires (_border-radius, _breakpoints) mixin
+// @import "node_modules/bootstrap/scss/list-group";  // Requires (_hover, _border-radius, _list-group) mixin
+// @import "node_modules/bootstrap/scss/modal";  // w/ JavaScript  // Requires (_transition, _border-radius, _box-shadow, _breakpoints) mixin
+// @import "node_modules/bootstrap/scss/nav";  // Requires (_hover, _border-radius) mixin
+// @import "node_modules/bootstrap/scss/navbar";  // Requires (_hover, _border-radius, _breakpoints) mixin
+// @import "node_modules/bootstrap/scss/pagination";  // Requires (_lists, _border-radius, _pagination) mixin
+// @import "node_modules/bootstrap/scss/popover";  // w/ JavaScript  // Requires (_reset-text, _border-radius, _box-shadow) mixin
+// @import "node_modules/bootstrap/scss/progress";  // Requires (_border-radius, _box-shadow, _transition, _gradients) mixin
+// @import "node_modules/bootstrap/scss/tooltip";  // w/ JavaScript  // Requires (_reset-text, _border-radius) mixin
+
+// Utilities
+// @import "node_modules/bootstrap/scss/close";  // Requires (_hover) mixin
+// @import "node_modules/bootstrap/scss/print"
+// @import "node_modules/bootstrap/scss/transitions";  // Requires (_transition) mixin
+
+/*** Utility classes ***/
+
+// @import "node_modules/bootstrap/scss/utilities/align";
+// @import "node_modules/bootstrap/scss/utilities/background";  // Requires (_background-variant, _hover)
+// @import "node_modules/bootstrap/scss/utilities/borders";
+// @import "node_modules/bootstrap/scss/utilities/clearfix";  // Requires (_clearfix) mixin
+// @import "node_modules/bootstrap/scss/utilities/display";  // Requires (_breakpoints) mixin
+// @import "node_modules/bootstrap/scss/utilities/embed";
+// @import "node_modules/bootstrap/scss/utilities/flex";  // Requires (_breakpoints) mixin
+// @import "node_modules/bootstrap/scss/utilities/float";  // Requires (_breakpoints, _float) mixin
+// @import "node_modules/bootstrap/scss/utilities/position";
+// @import "node_modules/bootstrap/scss/utilities/screenreaders";  // Requires (_screen-reader) mixin
+// @import "node_modules/bootstrap/scss/utilities/sizing";
+// @import "node_modules/bootstrap/scss/utilities/spacing";  // Requires (breakpoints) mixin
+// @import "node_modules/bootstrap/scss/utilities/text";  // Requires (_breakpoints, _text-truncate, _text-emphasis, _hover, _text-hide) mixin
+// @import "node_modules/bootstrap/scss/utilities/visibility";  // Requires (_visibility) mixin

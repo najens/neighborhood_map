@@ -1,0 +1,7 @@
+# Paths #
+dist/
+node_modules/
+
+# Files #
+.git
+npm-debug.log
