@@ -31,6 +31,10 @@ const ViewModel = function() {
         self.currentPlace(clickedPlace);
         model.setCurrentPlace(self.currentPlace());
     };
+
+    this.addLocation = function() {
+        // TODO: Add form fields and google data to localStorage
+    }
 }
 
 // Apply knockout bindings
