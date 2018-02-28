@@ -9,18 +9,34 @@
         <!-- Wrapper-->
         <div class="wrapper" id="display">
             <!-- Sidebar -->
-            <aside class="container sidebar-container p-0">
-                <ul class="sidebar-nav">
-                    <li class="sidebar-heading">
-                        <h3 class="text-white">Items</h3>
-                    </li>
-                    <div class="container">
+            <aside class="sidebar-container p-0">
+                <div class="container sidebar-nav">
+                    <header class="sidebar-heading">
                         <h3 class="text-white">Seattle</h3>
-                        <ul id="neighborhood-list" data-bind="foreach: neighborhoodList">
-                            <li data-bind="text: title, click: $parent.setPlace"></li>
-                        </ul>
+                    </header>
+                    <button class="btn btn-primary mb-3" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        Add Item
+                    </button>
+                    <div class="collapse" id="collapseExample">
+                        <div class="card card-body mb-3">
+                            <form>
+                                <div class="form-group" data-bind="submit: addLocation">
+                                    <label for="google-search">Location</label>
+                                    <input type="search" class="form-control mw-100" placeholder="Search Google" id="google-search">
+                                </div>
+                                <div class="form-group">
+                                    <label for="description">Description</label>
+                                    <input type="text" class="form-control mw-100" id="description">
+                                </div>
+                                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                            </form>
+                        </div>
                     </div>
-                </ul>
+                    <div class="list-group" data-bind="foreach: neighborhoodList" id="neighborhood-list">
+                        <!-- <a href="#" class="list-group-item list-group-item-action" data-bind="text: title, click: $parent.setPlace"></a> -->
+                        <button type="button" class="list-group-item list-group-item-action" data-bind="text: title, click: $parent.setPlace"></button>
+                    </div>
+                </div>
             </aside>
             <!-- /#sidebar-wrapper -->
             <!-- Page Content -->
