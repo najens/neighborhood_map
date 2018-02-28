@@ -14,6 +14,12 @@
                     <li class="sidebar-heading">
                         <h3 class="text-white">Items</h3>
                     </li>
+                    <div class="container">
+                        <h3 class="text-white">Seattle</h3>
+                        <ul id="neighborhood-list" data-bind="foreach: neighborhoodList">
+                            <li data-bind="text: title, click: $parent.setPlace"></li>
+                        </ul>
+                    </div>
                 </ul>
             </aside>
             <!-- /#sidebar-wrapper -->
