@@ -31,3 +31,8 @@ $ npm install
 $ npm run build
 ```
 - Open app in browser at http://localhost:5000
+
+## Build App Bundle for Production
+```
+$ npm run build:prod
+```
