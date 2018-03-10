@@ -1,0 +1,12 @@
+// Custom backgrounds using bootstrap mixins
+.btn-small {
+    @include button-size(.15rem, .3rem, 80%, 1.5, $border-radius)
+}
+
+.btn-light-blue {
+    @include custom-button(#42a5f5);
+}
+
+.btn-red {
+    @include custom-button(#f44336);
+}

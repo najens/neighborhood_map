@@ -1,5 +1,8 @@
 # neighborhood_map
-neighborhood_map is a simple frontend app that allows users to view neighborhood locations and filter results.
+neighborhood_map is a simple frontend app that allows users to add, edit, delete, and filter locations on a google map. This example focuses on the Seattle area.
+
+## APIs
+This project uses the [Google Maps Javascript API](https://developers.google.com/maps/documentation/javascript/), the [Google Places API Web Service](https://developers.google.com/places/web-service/), and the [Foursquare API](https://developer.foursquare.com/).
 
 ## Software Requirements
 - [Git or Git Bash](https://git-scm.com/downloads)

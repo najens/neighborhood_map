@@ -8,52 +8,94 @@
     <body>
         <!-- Wrapper-->
         <div class="wrapper" id="display">
+            <!-- Modal Add/Edit Item -->
+            <div class="modal" id="myModal" role="dialog">
+                <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 id="form-title" class="modal-title"></h4>
+                      <a class="btn btn-small btn-red" href="#" data-dismiss="modal">&times;</a>
+                    </div>
+                    <div class="modal-body">
+                        <form id="location-form">
+                            <div class="form-group">
+                                <label class="d-block" for="google-search">Location</label>
+                                <input type="search" class="form-control mw-100" placeholder="Search Google" id="google-search">
+                            </div>
+                            <div class="form-group">
+                                <label class="d-block" for="description">Description</label>
+                                <input type="text" class="form-control mw-100" id="description">
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3" id="submit-btn-add">Submit</button>
+                            <button type="submit" class="btn btn-primary mt-3" id="submit-btn-edit">Submit</button>
+                            <button type="button" class="btn btn-default ml-3 mt-3" data-dismiss="modal">Cancel</button>
+                        </form>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <!-- /#myModal -->
+            <!-- Modal Delete Item -->
+            <div class="modal" id="delete-modal" role="dialog">
+                <div class="modal-dialog modal-md">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Delete Location</h4>
+                      <a class="btn btn-small btn-red" href="#" data-dismiss="modal">&times;</a>
+                    </div>
+                    <div class="modal-body">
+                        <form id="location-form">
+                            <div class="form-group">
+                                <h3 class="d-inline-block">Are you sure you want to delete <span id="delete-name"></span>?</h3>
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3" data-bind="click: deleteLocation" data-dismiss="modal" id="submit-btn-delete">Delete</button>
+                            <button type="button" class="btn btn-default ml-3 mt-3" data-dismiss="modal">Cancel</button>
+                        </form>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <!-- /#delete-modal -->
             <!-- Sidebar -->
             <aside class="sidebar-container p-0">
                 <div class="container sidebar-nav">
-                    <header class="sidebar-heading">
+                    <header class="sidebar-heading mt-3">
                         <h3 class="text-white">Seattle</h3>
                     </header>
-                    <button class="btn btn-primary mb-3" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    <button class="btn btn-primary mb-3" type="button" data-toggle="modal" data-target="#myModal" data-bind="click: addForm" aria-expanded="false" aria-controls="collapseExample" id="add-location">
                         Add Item
                     </button>
-                    <div class="collapse" id="collapseExample">
-                        <div class="card card-body mb-3">
-                            <form>
-                                <div class="form-group" data-bind="submit: addLocation">
-                                    <label for="google-search">Location</label>
-                                    <input type="search" class="form-control mw-100" placeholder="Search Google" id="google-search">
-                                </div>
-                                <div class="form-group">
-                                    <label for="description">Description</label>
-                                    <input type="text" class="form-control mw-100" id="description">
-                                </div>
-                                <button type="submit" class="btn btn-primary mt-3">Submit</button>
-                            </form>
-                        </div>
+                    <div>
+                        <form class="d-flex w-100 mb-3">
+                            <input class="w-100" type="text" placeholder="Filter Results" data-bind="value: filter, valueUpdate: 'afterkeydown'" id="filter-text"/>
+                        </form>
                     </div>
-                    <div class="list-group" data-bind="foreach: neighborhoodList" id="neighborhood-list">
-                        <!-- <a href="#" class="list-group-item list-group-item-action" data-bind="text: title, click: $parent.setPlace"></a> -->
-                        <button type="button" class="list-group-item list-group-item-action" data-bind="text: title, click: $parent.setPlace"></button>
+                    <div class="list-group pb-3" data-bind="foreach: visibleLocations" id="neighborhood-list">
+                        <div class="d-flex w-100 justify-content-between list-group-item p-0 align-items-stretch">
+                            <a href="#" class="list-group-item-action d-flex flex-column justify-content-center p-3" data-bind="text: name, click: $parent.showInfo, attr: {id: 'location-' + id}"></a>
+                            <div class="d-flex flex-column justify-content-center align-items-stretch p-3">
+                                <a class="btn btn-small btn-light-blue mb-2 d-flex justify-content-center" href="#" data-toggle="modal" data-target="#myModal" data-bind="click: $parent.editForm">Edit</a>
+                                <a class="btn btn-small btn-red" href="#" data-toggle="modal" data-target="#delete-modal" data-bind="click: $parent.deleteForm">Delete</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </aside>
-            <!-- /#sidebar-wrapper -->
+            <!-- /.sidebar-container -->
             <!-- Page Content -->
-            <div class="container-fluid page-content-container p-0">
-                <main class="container-fluid p-0">
-                    <nav class="navbar navbar-dark bg-primary">
+            <div class="container-fluid page-content-container p-0 d-flex flex-row">
+                <main class="container-fluid p-0 d-flex flex-column h-100">
+                    <nav class="navbar navbar-dark bg-primary justify-content-start">
                         <button class="navbar-toggler" type="button" id="menu-toggle">
                             <span class="navbar-toggler-icon"></span>
                         </button>
+                        <h2 class="pl-4 text-white hide-overflow-x">Neigborhood Map</h2>
                     </nav>
-                    <header class="m-3">
-                        <h1>Neighborhood Map</h1>
-                    </header>
+                    <div id="map"></div>
                 </main>
             </div>
-            <!-- /#page-content-wrapper -->
+            <!-- /.page-content-container -->
         </div>
-        <!-- /#wrapper -->
+        <!-- /#display -->
     </body>
 </html>

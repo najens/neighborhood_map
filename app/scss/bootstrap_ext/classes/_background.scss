@@ -1,0 +1,4 @@
+// Custom backgrounds using bootstrap mixins
+.bg-primary {
+    @include bg-variant('.bg-primary', $primary);
+}

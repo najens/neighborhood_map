@@ -78,7 +78,7 @@
 // @import "node_modules/bootstrap/scss/input-group";  // Requires (_border-radius,  _box-shadow, _gradients, _transition, _forms, _breakpoints) mixin (_forms) module
 // @import "node_modules/bootstrap/scss/jumbotron";  // Requires (_border-radius, _breakpoints) mixin
 @import "node_modules/bootstrap/scss/list-group";  // Requires (_hover, _border-radius, _list-group) mixin
-// @import "node_modules/bootstrap/scss/modal";  // w/ JavaScript  // Requires (_transition, _border-radius, _box-shadow, _breakpoints) mixin
+@import "node_modules/bootstrap/scss/modal";  // w/ JavaScript  // Requires (_transition, _border-radius, _box-shadow, _breakpoints) mixin
 // @import "node_modules/bootstrap/scss/nav";  // Requires (_hover, _border-radius) mixin
 @import "node_modules/bootstrap/scss/navbar";  // Requires (_hover, _border-radius, _breakpoints) mixin
 // @import "node_modules/bootstrap/scss/pagination";  // Requires (_lists, _border-radius, _pagination) mixin
@@ -97,7 +97,7 @@
 @import "node_modules/bootstrap/scss/utilities/background";  // Requires (_background-variant, _hover)
 // @import "node_modules/bootstrap/scss/utilities/borders";
 // @import "node_modules/bootstrap/scss/utilities/clearfix";  // Requires (_clearfix) mixin
-// @import "node_modules/bootstrap/scss/utilities/display";  // Requires (_breakpoints) mixin
+@import "node_modules/bootstrap/scss/utilities/display";  // Requires (_breakpoints) mixin
 // @import "node_modules/bootstrap/scss/utilities/embed";
 @import "node_modules/bootstrap/scss/utilities/flex";  // Requires (_breakpoints) mixin
 // @import "node_modules/bootstrap/scss/utilities/float";  // Requires (_breakpoints, _float) mixin

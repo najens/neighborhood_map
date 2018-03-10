@@ -4,7 +4,7 @@
 // import 'exports-loader?Carousel!bootstrap/js/dist/carousel';
 import 'exports-loader?Collapse!bootstrap/js/dist/collapse';
 // import 'exports-loader?Dropdown!bootstrap/js/dist/dropdown';
-// import 'exports-loader?Modal!bootstrap/js/dist/modal';
+import 'exports-loader?Modal!bootstrap/js/dist/modal';
 // import 'exports-loader?Popover!bootstrap/js/dist/popover';
 // import 'exports-loader?Scrollspy!bootstrap/js/dist/scrollspy';
 // import 'exports-loader?Tab!bootstrap/js/dist/tab';

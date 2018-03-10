@@ -1,91 +1,79 @@
-export const Model = function() {
-    const self = this;
+import {initialData} from './data';
 
-    this.initialLocations = [
-        {
-            title: 'Space Needle',
-            location: {lat: 47.6205124, lng: -122.3514743},
-            description: "Observation tower and iconic landmark of the Pacific Northwest"
-        },
-        {
-            title: 'Pike Place Market',
-            location: {lat: 47.6097271, lng: -122.3465703},
-            description: "Public market overlooking the Elliot Bay waterfront"
-        },
-        {
-            title: 'Museum of Pop Culture',
-            location: {lat: 47.621486, lng: -122.3503132},
-            description: "Nonprofit museum dedicated to contemporary popular culture"
-        },
-        {
-            title: 'Gum Wall',
-            location: {lat: 47.6084288, lng: -122.3425538},
-            description: "Brick wall alleyway covered in used chewing gum"
-        },
-        {
-            title: 'Olympic Sculpture Park',
-            location: {lat: 47.6165994, lng: -122.3574988},
-            description: "Public park with outdoor sculpture museum and beach"
-        },
-        {
-            title: 'Museum of Flight',
-            location: {lat: 47.5179966, lng: -122.2985726},
-            description: "The world's largest private air and space museum"
-        },
-        {
-            title: 'Washington Park Arboretum',
-            location: {lat: 47.6397989, lng: -122.2966592},
-            description: "Popular tree garden in Washington Park"
-        },
-        {
-            title: 'Seattle Central Library',
-            location: {lat: 47.6067042, lng: -122.3346896},
-            description: "Large public library with unique structural architecture"
-        },
-        {
-            title: 'Seattle Cinerama',
-            location: {lat: 47.6140096, lng: -122.3434987},
-            description: "Lankmark movie theater in the Belltown neighborhood"
-        },
-        {
-            title: 'Safeco Field',
-            location: {lat: 47.5913944, lng: -122.3345161},
-            description: "Baseball park of the Seattle Mariners"
-        },
-        {
-            title: 'Century Link Field',
-            location: {lat: 47.5951554, lng: -122.3338281},
-            description: "Multipurpose stadium and home of the Seahawks and Sounders"
-        }
-    ];
+export class Model {
+    constructor() {
+        this.initialData = initialData;
+    }
 
-    this.Place = function(data) {
-        this.title = data.title;
-        this.location = data.location;
-        this.description = data.description;
-    };
+    // Creates new Place objects
+    Place(data) {
+        return {
+            id: data.id,
+            name: data.name,
+            place_id: data.place_id,
+            address: data.address,
+            location: data.location,
+            description: data.description
+        };
+    }
 
-    this.setInitialData = function() {
+    // Stores initial data in localStorage if it doesn't already exist
+    setInitialData() {
+        const self = this;
         if (!localStorage.getItem('locations')) {
-            const neighborhoodList = ko.observableArray([]);
-            self.initialLocations.forEach(function(locationItem) {
-                neighborhoodList.push(new self.Place(locationItem));
+            const neighborhoodList = [];
+            self.initialData.forEach(function(locationItem) {
+                const newPlace = self.Place(locationItem);
+                neighborhoodList.push(newPlace);
             });
-            localStorage.setItem('locations', ko.toJSON(neighborhoodList()));
+            localStorage.setItem(
+                'locations', JSON.stringify(neighborhoodList)
+            );
+            localStorage.setItem('idCount', self.initialData.length);
         }
-    };
+    }
 
-    this.getLocations = function() {
+    // Gets locations from localStorage
+    getLocations() {
         const locations = localStorage.getItem('locations');
         return JSON.parse(locations);
     }
 
-    this.getCurrentPlace = function() {
+    // Stores locations in localStorage
+    setLocations(neighborhoodList) {
+        const self = this;
+        const locations = [];
+        neighborhoodList.forEach(function(locationItem) {
+            locations.push(self.Place(locationItem));
+        });
+        localStorage.setItem('locations', JSON.stringify(locations));
+    }
+
+    // Gets current place from local storage
+    getCurrentPlace() {
         const currentPlace = localStorage.getItem('currentPlace');
         return JSON.parse(currentPlace);
     }
 
-    this.setCurrentPlace = function(currentPlace) {
-        localStorage.setItem('currentPlace', ko.toJSON(currentPlace));
+    // Stores current place in local storage
+    setCurrentPlace(currentPlace) {
+        let place;
+        if (currentPlace == null) {
+            place = null;
+        } else {
+            place = this.Place(currentPlace);
+        }
+        localStorage.setItem('currentPlace', JSON.stringify(place));
+    }
+
+    // Get id count from local storage
+    getIdCount() {
+        const idCount = localStorage.getItem('idCount');
+        return JSON.parse(idCount);
+    }
+
+    // Store id count in local storage
+    setIdCount(idCount) {
+        localStorage.setItem('idCount', JSON.stringify(idCount));
     }
 }
