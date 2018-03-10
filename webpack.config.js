@@ -1,6 +1,6 @@
 const path = require('path');
 const SRC_DIR = path.resolve(__dirname, 'app');
-const DIST_DIR = path.resolve(__dirname, 'dist')
+const DIST_DIR = path.resolve(__dirname, 'docs')
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const precss = require('precss');
@@ -17,7 +17,7 @@ const config = {
         SRC_DIR + '/index.js'
     ],
     output: {
-        path: DIST_DIR + '/app',
+        path: DIST_DIR + '/',
         filename: 'js/bundle.js'
     },
     devServer: {
