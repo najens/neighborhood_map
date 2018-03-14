@@ -258,12 +258,12 @@ export const ViewModel = function(gmaps, map) {
     // from Google Places to the infowindow autocomplete object for
     // updating the ko arrays.
     this.foursquareRequest = function(marker, infowindow, place) {
-        const url = new URL('https://api.foursquare.com/v2/venues/search?');
+        let url = 'https://api.foursquare.com/v2/venues/search?';
         const CLIENT_ID =
             'KYWCNFY04MNRGEAUYLUEOZ5W0D2K34RLKLOARYPIQMTLBO20';
         const CLIENT_SECRET =
             'DL0UB4GDXV50DWVJZOQR3GVR4PMX1UX4L5CNJ1CEO1QHF4VK';
-        const ll = `${marker.position.lat()}, ${marker.position.lng()}`;
+        const ll = `${marker.position.lat()},${marker.position.lng()}`;
         const params = {
             client_id: CLIENT_ID,
             client_secret: CLIENT_SECRET,
@@ -275,10 +275,15 @@ export const ViewModel = function(gmaps, map) {
         };
         // Add parameters to url
         $.each(params, function(key, value) {
-          url.searchParams.append(key, value);
+            url += `${key}=${value}&`;
         });
+        url = url.slice(0, -1);
+        for (let i = 0; i < url.length; i++) {
+            url = url.replace(' ', '%20');
+        }
+
         // Send ajax request to foursquare
-        $.getJSON(url.href)
+        $.getJSON(url)
 
         // Create infowindow and show on map after results received
         .done(function(data) {
@@ -385,13 +390,14 @@ export const ViewModel = function(gmaps, map) {
         // If the foursquare request failed, alert user and display
         // error message in browser's developer console
         .fail(function(err) {
-            const error = err.responseJSON.meta;
-            const code = error.code;
-            const message = error.errorDetail;
-            alert(`API Request Error. Please see browser \
-                  developer console for details.`
-            );
-            console.log(`Error ${code}: ${message}`);
+            console.log(err);
+            // const error = err.responseJSON.meta;
+            // const code = error.code;
+            // const message = error.errorDetail;
+            // alert(`API Request Error. Please see browser \
+            //       developer console for details.`
+            // );
+            // console.log(`Error ${code}: ${message}`);
         });
     }
 
