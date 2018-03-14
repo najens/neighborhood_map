@@ -16,12 +16,12 @@ This project uses the [Google Maps Javascript API](https://developers.google.com
 
 - Clone the GitHub repository
 ```
-$ git clone https://github.com/najens/item_catalog.git
+$ git clone https://github.com/najens/neighborhood_map.git
 ```
 
 - Navigate to project folder
 ```
-$ cd item_catalog
+$ cd neighborhood_map
 ```
 
 - Install Module Dependencies
